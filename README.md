@@ -1,33 +1,35 @@
-# Regressão Linear Múltipla — Fase 2
+# Regressão Linear — Fases 1 e 2
 
-Análise de 47 casas usando tamanho e número de quartos para prever o preço.
+Projeto acadêmico de análise de correlação e regressão linear com Python.
+
+## Organização
+
+| Pasta | Conteúdo | Script principal |
+|---|---|---|
+| [fase1](fase1/README.md) | Correlação e regressão simples, com análise dos conjuntos e de pontos influentes | `fase1/demo.py` |
+| [fase2](fase2/README.md) | Regressão múltipla para preço de casas usando tamanho e quartos | `fase2/rmdemo.py` |
+
+Cada fase contém seu notebook e a pasta `resultados` com os gráficos. As dependências são compartilhadas no `requirements.txt` da raiz.
 
 ## Executar no Windows
 
-Com Python instalado, abra um terminal na pasta do projeto:
+Com Python instalado, abra o terminal na raiz do repositório:
 
 ```powershell
 python -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
-.\.venv\Scripts\python.exe rmdemo.py
+.\.venv\Scripts\python.exe fase1\demo.py
+.\.venv\Scripts\python.exe fase2\rmdemo.py
 ```
 
-Para salvar os resultados sem abrir gráficos, acrescente `--sem-janela`.
+Se já houver um ambiente Python configurado, utilize seu executável. O comando global `python` precisa apontar para uma instalação real, e não para o atalho da Microsoft Store.
 
-## Arquivos
+Acrescente `--sem-janela` para salvar os gráficos sem abrir janelas. Os scripts encontram seus dados e salvam os resultados em suas próprias pastas.
 
-- `regmultipla.py`: cálculo dos coeficientes pela equação normal, usando `numpy.linalg.solve`.
-- `rmdemo.py`: análise descritiva, regressões simples e múltipla, gráficos e comparação com scikit-learn.
-- `fase2.ipynb`: alternativa para uso em Jupyter, que requer um ambiente Jupyter instalado.
-- `data.csv`: dados fornecidos na atividade, sem cabeçalho.
-- `resultados/`: gráficos e respostas gerados pelo script.
+Para os notebooks, abra a pasta da fase correspondente no Jupyter e utilize um kernel com as dependências instaladas. Jupyter não é necessário para executar os scripts.
 
-O gráfico 3D apresenta o plano ajustado e pode ser girado na janela do Matplotlib.
+## Dados e validação
 
-## Resultado de referência
+A fase 1 preserva os vetores do notebook enviado originalmente. O quinto conjunto é uma comparação sem o possível outlier do conjunto 4. A fase 2 preserva o CSV fornecido na atividade. Não são compartilhados ambientes Python, credenciais ou arquivos temporários.
 
-Para tamanho 1650 e 3 quartos, o CSV produz 293081,566874. O arquivo MAT fornecido na atividade produz 293081,464335, que arredonda para 293081. Foram identificadas diferenças de até 2 unidades em quatro preços entre os anexos. O projeto preserva os valores do CSV.
-
-Os coeficientes e previsões foram comparados com `LinearRegression` do scikit-learn. O ajuste utiliza a base completa, conforme a atividade; essa comparação verifica a implementação, não o desempenho em dados novos.
-
-Tamanho e preço permanecem nas unidades originais, não especificadas no enunciado.
+Os coeficientes da fase 1 foram conferidos com NumPy. Na fase 2, coeficientes e previsões foram comparados com scikit-learn. Consulte os documentos de cada fase para as interpretações e limitações.
